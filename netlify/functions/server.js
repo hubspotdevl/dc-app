@@ -1,12 +1,3 @@
-// const jsonServer = require('json-server');
-// const server = jsonServer.create();
-// const router = jsonServer.router('db.json');
-// const middlewares = jsonServer.defaults();
-// const port = process.env.PORT || 3000;
-
- 
-
-
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
@@ -26,25 +17,7 @@ app.use((req, res, next) => {
 });
 
 // Endpoint to fetch data from HubSpot API
-
-/*
-app.get('/hubspot-api', async (req, res) => {
-    try {
-        // Assuming token is passed as a query parameter
-        const response = await axios.get('https://api.hubapi.com/crm/v3/objects/contacts/', {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
-        });
-        res.json(response.data);
-    } catch (error) {
-        console.error('Error fetching data from HubSpot API:', error.message);
-        res.status(error.response.status || 500).json({ error: error.message });
-    }
-});
-*/
-
+ 
 
 app.get('/hubspot-api-search', async (req, res) => {
 
@@ -100,37 +73,10 @@ app.listen(PORT, () => {
 });
 
 
+
+module.exports.handler = serverless(app);
+
+
  
-
-
-
-
-
-// Start the server
-
-/* 
-
-let config = {
-    method: 'post',
-    maxBodyLength: Infinity,
-    url: 'https://api.hubspot.com/crm/v3/objects/contacts/search',
-    headers: {
-        'Content-Type': 'application/json',
-        'Authorization': '••••••',
-    },
-    data: data
-};
-
-axios.request(config)
-    .then((response) => {
-        console.log(JSON.stringify(response.data));
-    })
-    .catch((error) => {
-        console.log(error);
-    });
-
-    */
-   
-
 
  
